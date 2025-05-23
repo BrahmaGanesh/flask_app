@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{{url_for('static',filename='style.css')}}">
+  <title>Register</title>
+</head>
+<body>
+   {% with messages=get_flashed_messages(with_categories=True) %}
+  {% for message,success in messages %}
+  <p class={{message}}>{{success}}</p>
+  {% endfor %}
+ {% endwith %}
+  <form method="POST">
+    {{ form.hidden_tag() }}
+    {{ form.name.label }} {{ form.name() }} <br>
+    {{ form.email.label }} {{ form.email() }} <br>
+    {{ form.password.label }} {{ form.password() }} <br>
+    {{ form.submit() }}
+</form>
+</body>
+</html>

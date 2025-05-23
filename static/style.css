@@ -1,0 +1,11 @@
+body{
+  background-color: blueviolet;
+  color: white;
+}
+a{
+  background-color: red;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 10px;
+  text-align: center;
+}
