@@ -38,7 +38,7 @@ def login():
       if user.is_admin:
         return redirect("/admin")
       else:
-        return redirect("/home")
+        return redirect("/")
     else:
       flash("Invalid email or password","danger")
       redirect("/login")
@@ -84,7 +84,7 @@ def admin():
   user=User.query.get(session["user_id"])
   if not user.is_admin:
     flash("Access denied. Admins only","danger")
-    return redirect('/home')
+    return redirect('/')
   users=User.query.all()
   return render_template("admin.html",users=users)
 
@@ -118,7 +118,7 @@ def delete_user(user_id):
     flash('User deleted!', 'info')
     return redirect(url_for('admin'))
 
-@app.route("/home")
+@app.route("/")
 def home():
   if 'user_id' not in session:
     flash("please Login first","warning")
